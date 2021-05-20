@@ -1,25 +1,49 @@
 {
-    "name": "NextApp",
+    "name": "theuhm",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "scripts": {
-        "dev": "next",
-        "build": "next build",
-        "start": "next start"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "@primer/components": "^28.0.2",
+        "@geist-ui/react": "^2.1.5",
+        "@primer/components": "^28.0.3",
         "mongodb": "^3.6.6",
-        "next": "^9.2.2",
+        "mongoose": "^5.12.9",
+        "next": "^10.2.0",
         "next-auth": "^3.21.1",
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0"
+        "pino": "^6.11.3",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "styled-components": "^5.3.0",
+        "swr": "^0.5.6",
+        "winston": "^3.3.3"
     },
     "devDependencies": {
-        "jest": "^26.6.3"
-    }
+        "@types/node": "^15.0.3",
+        "@types/pino": "^6.3.8",
+        "@types/react": "^17.0.5",
+        "jest": "^26.6.3",
+        "typedoc": "^0.20.36",
+        "typescript": "^4.2.4"
+    },
+    "scripts": {
+        "dev": "next"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CollectivelyCode/hallwatch.git"
+    },
+    "keywords": [],
+    "contributors": [
+        {
+            "name": "Elliott Bryant"
+        },
+        {
+            "name": "Neal Vaught"
+        }
+    ],
+    "license": "AGPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/CollectivelyCode/hallwatch/issues"
+    },
+    "homepage": "https://github.com/CollectivelyCode/hallwatch#readme"
 }
