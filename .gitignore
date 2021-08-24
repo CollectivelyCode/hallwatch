@@ -119,6 +119,8 @@ dist
 # replit
 .replit
 
+# IDE files
+.idea
 
 # Env files
 .env

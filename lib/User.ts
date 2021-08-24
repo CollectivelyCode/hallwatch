@@ -1,8 +1,7 @@
 import BaseUser from './BaseUser';
-import PermissionLevel from './PermissionLevel';
 import mongoose from 'mongoose';
 import Pass from './Pass'
-import * as pino from 'pino';
+import pino from 'pino';
 
 const logger = pino({
     name: "UserService",
@@ -21,9 +20,9 @@ const TeacherDataSchema: mongoose.Schema = new mongoose.Schema({
 
 
 const UserSchema: mongoose.Schema = new mongoose.Schema<BaseUser>({
-    name: { type: String, requried: true},
-    email: { type: String, requried: true},
-    image: { type: String, requried: true},
+    name: {type: String, required: true},
+    email: {type: String, required: true},
+    image: {type: String, required: true},
     createdAt: String,
     updatedAt: String,
     passId: mongoose.ObjectId,
@@ -32,16 +31,17 @@ const UserSchema: mongoose.Schema = new mongoose.Schema<BaseUser>({
     teacherData: TeacherDataSchema
 })
 
-UserSchema.method('createPass', function(data){
-    if (this.studentData || this.permissionLevel >= 1){
-        const pass = Pass.create(data, function(err, document){
-            if (err){
-                logger.error(`Error caught: ${err}`)
-            }
-            logger.info(`User with ID ${this.id} created pass with id ${document.id}`)
-        })
-        this.updateOne({"passId": document.id})
-    }
+UserSchema.method('createPass', function (data) {
+    const pass = new Pass(data)
+    pass.save((err: Error) => {
+        if (err) {
+            logger.error(`Error caught: ${err}`)
+            throw err
+        }
+        logger.info(`User with ID ${this.id} created pass with id ${document._id}`)
+        mongoose.model('User').updateOne({"passId": pass._id})
+    })
+
 })
 
 export default mongoose.models.User || mongoose.model('user', UserSchema)

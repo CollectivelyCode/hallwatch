@@ -6,7 +6,7 @@ interface Pass{
     student: Object
     teacher: Object
     timeCreated: String
-    
+
 }
 
 const PassSchema = new mongoose.Schema<Pass>({

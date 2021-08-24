@@ -1,31 +1,21 @@
 import React from 'react';
-import { GetServerSideProps } from 'next'
 import { Row, Col, Card, Button, Spacer, Grid, Fieldset } from '@geist-ui/react'
 import { signIn, signOut, useSession, getSession } from 'next-auth/client'
+import {NextPageContext} from "next";
 
 
 
 
 
-function Dashboard() {
-    return
-    (
-        <Fieldset>
-            <Fieldset.Title>The Evil Rabbit Jumped over the Fence</Fieldset.Title>
-            <Fieldset.Subtitle>The Evil Rabbit Jumped over the Fence</Fieldset.Subtitle>
-            <Fieldset.Footer>
-                <Fieldset.Footer.Status>
-                    <p>An error has occurred.</p>
-                </Fieldset.Footer.Status>
-                <Fieldset.Footer.Actions>
-                    <Button auto size="mini" type="success">Start</Button>
-                </Fieldset.Footer.Actions>
-            </Fieldset.Footer>
-        </Fieldset>
+function Pass() {
+    return (
+        <>
+
+            </>
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: NextPageContext) {
 
     const session = await getSession(context)
     if (!session) {
@@ -40,4 +30,4 @@ export async function getServerSideProps(context) {
         props: {}, // will be passed to the page component as props
     }
 }
-export default Dashboard
+export default Pass
